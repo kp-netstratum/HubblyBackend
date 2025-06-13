@@ -8,7 +8,7 @@ export class CassandraService implements OnModuleInit {
 
   async onModuleInit() {
     this.client = new Client({
-      contactPoints: ['127.0.0.1'],
+      contactPoints: ['cassandra'],
       localDataCenter: 'datacenter1',
       keyspace: 'hubbly',
     });
