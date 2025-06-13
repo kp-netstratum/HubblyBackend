@@ -23,6 +23,8 @@ COPY wait-for-cassandra.sh .
 # Make it executable
 RUN chmod +x wait-for-cassandra.sh
 
+COPY secure-connect-test ./secure-connect-test
+
 EXPOSE 3000
 
 CMD ["sh", "./wait-for-cassandra.sh"]

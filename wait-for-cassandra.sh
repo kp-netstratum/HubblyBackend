@@ -11,9 +11,9 @@ echo "Cassandra is up - creating keyspace if needed..."
 
 cqlsh cassandra 9042 -e "
 
-CREATE KEYSPACE IF NOT EXISTS hubbly WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'}  AND durable_writes = true;
+CREATE KEYSPACE IF NOT EXISTS test WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'}  AND durable_writes = true;
 
-CREATE TABLE hubbly.events (
+CREATE TABLE test.events (
     id uuid PRIMARY KEY,
     created_by uuid,
     description text,
@@ -38,7 +38,7 @@ CREATE TABLE hubbly.events (
     AND read_repair = 'BLOCKING'
     AND speculative_retry = '99p';
 
-CREATE TABLE hubbly.users (
+CREATE TABLE test.users (
     id uuid PRIMARY KEY,
     created_at timestamp,
     email text,
